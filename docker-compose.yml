@@ -1,0 +1,35 @@
+services:
+  hr_bot_postgres:
+    image: postgres:latest
+    container_name: hr_bot_postgres
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5434:5432"
+    volumes:
+      - hr_bot_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  hr_bot:
+    build: .
+    container_name: hr_bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    depends_on:
+      hr_bot_postgres:
+        condition: service_healthy
+    command: ["python", "main.py"]
+
+volumes:
+  hr_bot_postgres_data: {}

@@ -1,0 +1,40 @@
+# IDE & системные файлы
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+
+# Виртуальные окружения
+.venv/
+env/
+venv/
+
+# Git
+.git/
+.gitignore
+
+# Конфиги и секреты (не должны попадать в образ)
+.env
+.secrets.*
+
+# Docker-специфичные
+.dockerignore
+Dockerfile*
+docker-compose*
+
+# Кэши линтеров/типизаторов
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Сборочные артефакты (для Python обычно не нужно, но на всякий)
+build/
+dist/
+*.egg-info/
+
+# PostgreSQL данные и другие локальные файлы
+*.db
+storage/
