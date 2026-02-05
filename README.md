@@ -1,4 +1,4 @@
-# HR_COFE_BOT
+# Event_tg_bot
 
 Проект представляет собой сервис на aiogram, предоставляющий интерфейс для коллаборации с сетью кофеен.
 Сервис позволяет пользователям взаимодействовать в рамках временного 8-ми недельного ивента. Проект контролируеться
@@ -21,8 +21,7 @@
 ### 1. Клонирование репозитория
 
 ```bash
-git clone https://github.com/nyorra/Coffee_tg_bot.git
-cd Coffee_tg_bot
+git clone https://github.com/nyorra/Event_tg_bot.git
 ```
 
 ---
